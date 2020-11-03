@@ -3,10 +3,39 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
         {% block stylesheets %}{% endblock %}
+
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{{ path('animaux') }}">Animaux Application</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('animaux') }}">
+                            Animaux <span class="sr-only"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('familles') }}">
+                            Accueil <span class="sr-only"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h1 class="border border-dark rounded p-2 m-2 text-white bg-primary">
+            {% block myTitle %}{% endblock %}
+        </h1>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
 </html>

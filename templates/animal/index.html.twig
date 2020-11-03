@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block myTitle %}Notre application d'animaux{% endblock %}
+
+{% block body %}
+    {% for animal in animals %}
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-2 text-center">
+                    <img src="{{ asset('images/' ~ animal.image) }}">
+                </div>
+                <div class="col-auto">
+                    <h2><a href="{{ path('show_animal', {'id': animal.id }) }}">{{ animal.name }}</a></h2>
+                    <div>{{ animal.description }}</div>
+                    <div><a href="" class="btn btn-primary">
+                            {{ animal.famille.libelle }}
+                        </a>
+                    </div>
+                    <h2>Présence de l'animal sur les continents :</h2>
+                    {% for continent in animal.continents %}
+                        <a href="" class="btn btn-warning">
+                            {{ continent.libelle }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
